@@ -1,5 +1,6 @@
 # Ignorar arquivos de configuração do Poetry
 pyproject.toml
+.pyproject.toml
 
 # Ignorar diretório de ambiente virtual (venv, virtualenv, etc.)
 venv/

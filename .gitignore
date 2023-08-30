@@ -1,0 +1,26 @@
+# Ignorar arquivos de configuração do Poetry
+pyproject.toml
+
+# Ignorar diretório de ambiente virtual (venv, virtualenv, etc.)
+venv/
+virtualenv/
+.venv/
+
+# Ignorar diretórios gerados
+__pycache__/
+dist/
+build/
+*.egg-info/
+.idea/
+
+# Ignorar arquivos de cache do sistema
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db

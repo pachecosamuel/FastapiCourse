@@ -6,6 +6,7 @@ pyproject.toml
 venv/
 virtualenv/
 .venv/
+.env
 
 # Ignorar diretórios gerados
 __pycache__/

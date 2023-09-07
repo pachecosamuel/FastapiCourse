@@ -1,6 +1,6 @@
 import pydantic
 from asyncio import gather
-from schemas import ConverterInput
+from schemas import ConverterInput, ConverterOutput
 from fastapi import APIRouter, Path, Query
 from converter import (
     sync_version_exchange,
@@ -56,13 +56,13 @@ async def async_converter(
 
 
 
-
-@router.get("/async/v2/{from_currency}")
+# 
+@router.get("/async/v2/{from_currency}", response_model=ConverterOutput)
 async def async_converter(
     body: ConverterInput,
     from_currency: str = Path(max_length=3, regex="^[A-Z]{3}$"), 
 ):
-    to_currencies = body.to_currencias
+    to_currencies = body.to_currencies
     price = body.price
     
     coroutines = []
@@ -77,6 +77,10 @@ async def async_converter(
         coroutines.append(coroutine)
         
     result = await gather(*coroutines)
-    return result
+    
+    return ConverterOutput(
+        message="Succeed",
+        data=result
+    )
 
 

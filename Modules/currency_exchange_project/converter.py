@@ -22,7 +22,7 @@ async def async_version_exchange(from_currency: str, to_currency: str, price: fl
     
     exchange_rate = float(data['Realtime Currency Exchange Rate']['5. Exchange Rate'])
     
-    return price * exchange_rate
+    return {to_currency: price * exchange_rate}
     
 
 def sync_version_exchange(from_currency: str, to_currency: str, price: float):
